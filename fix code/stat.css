@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    background-color: #f6f6f6;
+}
+  
+* {
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+  
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f6f6f6;
+    height: 80px;
+    padding-right: 20px;
+}
+  
+.navbar .logo {
+    display: flex;
+}
+  
+.navbar .logo img {
+    height:65px;
+    margin-left: 30px;
+}
+  
+.text {
+    margin-left: 119px;
+    margin-top: 15px;
+    font-weight: bold;
+    align-items: center;
+    font-size: large;
+    margin-right: 90px;
+    position: absolute;
+}
+  
+.sub-text {
+    position: absolute;
+    margin-left: 119px;
+    margin-top:35px;
+    color: black;
+    font-size: 10px;
+}
+  
+.home {
+    color: #ffc033;
+    margin-right: 30px;
+} 
+  
+.stat {
+    color: #ffc033;
+    margin-right: 90px;
+}
+  
+.profil{
+    width:45px;
+    border-radius: 50%;
+    position: absolute;
+    cursor: pointer;
+    right: 30px;
+    top: 20px;
+}
+  
+.menu {
+    position: absolute;
+    top: 9%;
+    right: 10px;
+    width: 300px;
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, opacity 0.5s; /* Tambahkan transisi opacity */
+    opacity: 0; /* Sembunyikan elemen saat max-height 0 */
+    pointer-events: none; /* Hindari interaksi pengguna saat elemen tersembunyi */
+}
+  
+.menu.open-class {
+    max-height: 900px;
+    opacity: 1; /* Tampilkan elemen saat max-height 400px */
+    pointer-events: auto; /* Aktifkan interaksi pengguna */
+}
+  
+.sub-menu{
+    background-color: #ffc033;
+    padding: 20px;
+    margin-left:110px;
+    height: 550px;
+}
+  
+.info{
+    display: flex;
+    align-items: center;
+}
+
+.info h2{
+    font-weight: 500; /*disini kalo mau ubah username jadi bold*/
+    font-size: large;
+}
+  
+.info img{
+    width:45px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+  
+.sub-menu hr{
+    border: 0;
+    height: 1px;
+    width:100%;
+    background-color: aliceblue;
+    margin: 15px 0 10px;
+}
+  
+.icon{
+    font-size: 30px;
+    margin-right: 15px;
+}
+  
+.sub-menu-link{
+    display: flex ;
+    align-items: center;
+    margin: 12px 0;
+    color: black;
+    font-size: 15px;
+}
+  
+.sub-menu-link p{
+    width: 100%;
+}
+  
+.sub-menu-link span{
+    transition: transform 0.5s;
+}
+  
+.sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+  
+.sub-menu-link:hover p{
+    font-weight: 600;
+}
+
+.container {
+  width: 80%;
+  margin-top: 10%;
+  margin-left: 10%;
+  text-align: center;
+  border: 5px solid;
+  border-top:none;
+  border-right: none;
+}
+
+main {
+  margin-top: 20px;
+}
+
+.bar {
+  width: 80px;
+  margin: 0 5px;
+  left: 90px;
+}
+
+.bar.happy {
+  background-color: #ffa500;
+}
+
+.bar.angry {
+  background-color: #ff4500;
+}
+
+.bar.tired {
+  background-color: #a9a9a9;
+}
+
+.bar.anxious {
+  background-color: #8a2be2;
+}
+
+.bar.sad {
+  background-color: #1e90ff;
+}
+
+.emotion {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.emotions {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+
+.emotion img {
+  width: 50px;
+  height: 50px;
+}
+
+/* Add this CSS to your stat.css file */
+
+.chart {
+  display: flex;
+  gap:70px;
+  align-items: flex-end;
+  height: 25em; /* Make sure this matches the height of your tallest bar */
+}
+
+
+.quote {
+  margin-top: 30px;
+  padding: 20px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #fff;
+  display: inline-block;
+  max-width: 80%;
+}
+
+.quote p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+footer { 
+    position: absolute;
+    width: 100%; 
+    height: 60px; 
+    background-color: #ffc033;
+    bottom: 0;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily</title>
+    <link rel="stylesheet" href="harian31.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-logo">
+            <img src="TomoHi.jpeg">
+            <div class="navbar-text">
+                <span class="title">Hi Friend!</span>
+                <span class="subtitle">Let's talk with Tomo</span>
+            </div>
+        </div>
+        
+        <div class="all">
+            <div class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="navbar-menu" id="navbar-menu">
+                <a href="profil.html" class="home">Home</a>
+                <a href="statistic.html" class="stat">Statistic</a>   
+            </div>
+            <div class="profile-icon-container" id="profile-icon-container">
+                <img src="kosong.jpg" alt="Profile" class="profile-img" id="profile-icon">
+                <div class="menu" id="menu">
+                    <div class="sub-menu">
+                        <div class="info">
+                            <img src="kosong.jpg" class="prof-menu">
+                            <h2>Username</h2> <!--nanti ubah biar otomatis nama username pas login-->
+                        </div>
+                        <hr>
+        
+                        <a href="edit.html" class="sub-menu-link">
+                         <i class='bx bxs-user icon'></i>
+                         <p>Edit Profil</p>
+                         <span></span>
+                        </a>
+        
+                        <a href="logout.html" class="sub-menu-link">
+                         <i class='bx bxs-log-out icon'></i>
+                         <p>Logout</p>
+                         <span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="kotak"></div>
+    <div class="kotak2"></div>
+    <p class="tulisan"> LET'S FILL YOUR MONTHS WITH STORY </p>
+    <div class="day">
+        <button onclick="window.location.href='jurnal.html'">1</button>
+        <button onclick="window.location.href='jurnal.html'">2</button>
+        <button onclick="window.location.href='jurnal.html'">3</button>
+        <button onclick="window.location.href='jurnal.html'">4</button>
+        <button onclick="window.location.href='jurnal.html'">5</button>
+        <button onclick="window.location.href='jurnal.html'">6</button>
+        <button onclick="window.location.href='jurnal.html'">7</button>
+        <button onclick="window.location.href='jurnal.html'">8</button>
+        <button onclick="window.location.href='jurnal.html'">9</button>
+        <button onclick="window.location.href='jurnal.html'">10</button>
+        <button onclick="window.location.href='jurnal.html'">11</button>
+        <button onclick="window.location.href='jurnal.html'">12</button>
+        <button onclick="window.location.href='jurnal.html'">13</button> 
+        <button onclick="window.location.href='jurnal.html'">14</button>
+        <button onclick="window.location.href='jurnal.html'">15</button>
+        <button onclick="window.location.href='jurnal.html'">16</button>
+        <button onclick="window.location.href='jurnal.html'">17</button>
+        <button onclick="window.location.href='jurnal.html'">18</button>
+        <button onclick="window.location.href='jurnal.html'">19</button>
+        <button onclick="window.location.href='jurnal.html'">20</button>
+        <button onclick="window.location.href='jurnal.html'">21</button>
+        <button onclick="window.location.href='jurnal.html'">22</button>
+        <button onclick="window.location.href='jurnal.html'">23</button>
+        <button onclick="window.location.href='jurnal.html'">24</button>
+        <button onclick="window.location.href='jurnal.html'">25</button> 
+        <button onclick="window.location.href='jurnal.html'">26</button> 
+        <button onclick="window.location.href='jurnal.html'">27</button> 
+        <button onclick="window.location.href='jurnal.html'">28</button> 
+        <button onclick="window.location.href='jurnal.html'">29</button> 
+        <button onclick="window.location.href='jurnal.html'">30</button>    
+        <button onclick="window.location.href='jurnal.html'">31</button>  
+    </div>
+    
+    
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbarMenu = document.getElementById('navbar-menu');
+        const profileIcon = document.getElementById('profile-icon');
+        const menu = document.getElementById("menu");
+
+        mobileMenu.addEventListener('click', () => {
+            navbarMenu.classList.toggle('active');
+            menu.classList.remove('open-class'); // Tutup menu profil saat toggle menu diklik
+        });
+
+        profileIcon.addEventListener('click', () => {
+            menu.classList.toggle('open-class'); // Toggle menu profil saat ikon profil diklik
+            navbarMenu.classList.remove('active'); // Tutup toggle menu saat ikon profil diklik
+        });
+
+        // Tutup menu profil saat pengguna mengklik di luar area menu
+        window.onclick = function(event) {
+            if (!event.target.matches('#profile-icon')) {
+                if (menu.classList.contains('open-class')) {
+                    menu.classList.remove('open-class');
+                }
+            }
+        };
+    </script>
+    <footer></footer>
+</body>
+</html>

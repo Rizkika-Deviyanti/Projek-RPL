@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily</title>
+    <link rel="stylesheet" href="harian.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav class="navbar">
+        <!-- Bagian navbar -->
+    </nav>
+    
+    <div class="kotak"></div>
+    <div class="kotak2"></div>
+    <p class="tulisan"> LET'S FILL YOUR MONTHS WITH STORY </p>
+    <div class="day">
+        <!-- Tambahkan id untuk setiap tombol hari -->
+        <button id="day1" onclick="goToDiary(1)">1</button>
+        <button id="day2" onclick="goToDiary(2)">2</button>
+        <!-- Tambahkan tombol untuk setiap hari di sini -->
+    </div>
+
+    <script>
+        // Fungsi untuk memeriksa apakah diary untuk hari tertentu sudah terisi
+        function isDiaryFilled(day) {
+            // Di sini Anda dapat menambahkan logika untuk memeriksa apakah diary untuk hari tersebut sudah terisi
+            // Misalnya, Anda bisa menggunakan data dari database atau dari penyimpanan lokal di browser
+            // Di contoh ini, kita akan menggunakan data dummy
+            const filledDays = [2, 4, 6]; // Diary untuk hari 2, 4, dan 6 sudah terisi
+
+            return filledDays.includes(day);
+        }
+
+        // Fungsi untuk mengarahkan pengguna ke diary untuk hari tertentu
+        function goToDiary(day) {
+            if (isDiaryFilled(day)) {
+                window.location.href = `jurnal.html?daily=${day}`;
+            } else {
+                window.location.href = `jurnal.html?daily=${day}`
+            }
+        }
+
+        // Mengatur warna tombol hari berdasarkan status diary
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.day button');
+            buttons.forEach(button => {
+                const day = parseInt(button.id.replace('day', ''));
+                if (isDiaryFilled(day)) {
+                    button.style.backgroundColor = '#FFC033'; // Jika diary sudah terisi, beri warna kuning
+                }
+            });
+        });
+    </script>
+    <footer></footer>
+</body>
+</html>

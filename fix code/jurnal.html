@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurnal</title>
+    <link rel="stylesheet" href="jurnal.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="jur-create.jpeg">
+            <p>Take a deep breath... and tell me about your day</p>
+        </div>
+    </header>
+    <form id="myForm" action=" " method="post"> <!--isi php buat jurnal-->
+        <div class="text-field">
+            <p>"What have you been up to today? All good? Tell me all about it!"</p>
+            <div class="textarea-container">
+                <textarea name="textarea1" id="textarea1" maxwords="200" spellcheck="false" placeholder="Type here..." required></textarea>
+                <div class="placeholder-bottom">0/200</div>
+            </div>
+        </div>
+        <div class="text-field">
+            <p>"Did any of your worries from yesterday actually come true?"</p>
+            <div class="textarea-container">
+                <textarea name="textarea2" id="textarea2" maxwords="200" spellcheck="false" placeholder="Type here..." required></textarea>
+                <div class="placeholder-bottom">0/200</div>
+            </div>
+        </div>
+        <div class="text-field">
+            <p>"Is there anything on your mind for tomorrow that's making you a bit anxious?"</p>
+            <div class="textarea-container">
+                <textarea name="textarea3" id="textarea3" maxwords="200" spellcheck="false" placeholder="Type here..." required></textarea>
+                <div class="placeholder-bottom">0/200</div>
+            </div>
+        </div>
+        <div class="text-field">
+            <p>"Give yourself a pat on the back for even the smallest achievements - you totally deserve it!"</p>
+            <div class="textarea-container">
+                <textarea name="textarea4" id="textarea4" maxwords="200" spellcheck="false" placeholder="Type here..." required></textarea>
+                <div class="placeholder-bottom">0/200</div>
+            </div>
+        </div>
+        <div class="text-field">
+            <p>"Got any plans for tomorrow? From your morning routine to the tasks you want to tackle, jot them down!"</p>
+            <div class="textarea-container">
+                <textarea name="textarea5" id="textarea5" maxwords="200" spellcheck="false" placeholder="Type here..." required></textarea>
+                <div class="placeholder-bottom">0/200</div>
+            </div>
+        </div>
+        <div class="emot">
+            <p> "How are you feeling today? Pick a mood that matches how you're doing."</p>
+        </div>
+        <div class="wrap"> <!--buat agar input value ke database-->
+            <img src="happy.jpeg" data-value="5">
+            <img src="angry.jpeg" data-value="4">
+            <img src="tired.jpeg" data-value="3">
+            <img src="anxious.jpeg" data-value="2">
+            <img src="sad.jpeg" data-value="1">
+        </div>
+        <input type="hidden" name="mood" id="moodInput">
+        <button class="submit-btn" type="submit">Submit</button>
+    </form>
+    
+    <footer></footer>
+
+    <script>
+        //Nilai emot
+         document.querySelectorAll('.wrap img').forEach(img => {
+            img.addEventListener('click', function() {
+                // Ambil nilai dari atribut data-value
+                const moodValue = this.getAttribute('data-value');
+                
+                // Masukkan nilai ke dalam input tersembunyi di dalam form
+                document.getElementById('moodInput').value = moodValue;
+                
+                // Opsional: Tampilkan perubahan visual untuk indikasi
+                document.querySelectorAll('.wrap img').forEach(img => img.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Tambahkan sedikit CSS untuk menunjukkan gambar yang dipilih
+        document.addEventListener('DOMContentLoaded', () => {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                .wrap img.selected {
+                    border: 2px solid #ffc033;
+                }
+            `;
+            document.head.appendChild(style);
+        });
+
+        //hitung kata
+        const textareas = document.querySelectorAll("textarea");
+        textareas.forEach(textarea => {
+            textarea.style.cssText = `height: ${textarea.scrollHeight}px; overflow-y:hidden`;
+            textarea.addEventListener("input", function(){
+                this.style.height = "20px";
+                this.style.height = `${this.scrollHeight}px`;
+                const maxWords = parseInt(this.getAttribute("maxwords")); // Mengambil jumlah maksimum kata
+                const currentWords = this.value.split(/\s+/).filter(word => word !== '').length; // Memisahkan kata-kata dengan spasi dan menghitung jumlahnya
+                if (currentWords > maxWords) {                        // Membatasi teks hanya hingga jumlah kata maksimum
+                  this.value = this.value.split(/\s+/).slice(0, maxWords).join(' ');
+                }
+                this.nextElementSibling.textContent = `${currentWords}/${maxWords}`;
+            });
+        });
+
+        //popup
+        function submitForm() {
+            const allFilled = Array.from(textareas).every(textarea => textarea.value.trim() !== '');
+            if (allFilled) {
+                // Formulir telah diisi, lanjutkan dengan mengirim ke halaman harian
+                // Tampilkan popup di halaman harian
+                showPopup();
+            } else {
+                // Ada textarea yang belum diisi, munculkan pesan kesalahan
+                alert('Please fill in all textareas!');
+                event.preventDefault(); // Menghentikan pengiriman formulir
+            }
+        }
+
+    </script>
+</body>
+</html>
